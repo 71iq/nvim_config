@@ -22,6 +22,12 @@ local plugins = {
     "nvim-neotest/nvim-nio",
   },
   {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require("notify")
+    end
+  },
+  {
     "jay-babu/mason-nvim-dap.nvim",
     event = "VeryLazy",
     dependencies = {
