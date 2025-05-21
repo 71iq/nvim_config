@@ -12,8 +12,26 @@ lspconfig.clangd.setup {
   capabilities = capabilities,
 }
 
-lspconfig.pyright.setup {
+lspconfig.verible.setup {
   on_attach = on_attach,
-  capabilitie = capabilities,
-  filetypes = {"python"}
+  capabilities = capabilities,
+  cmd = { "verible-verilog-ls" },
+  filetypes = { "verilog", "systemverilog" },
+  root_dir = lspconfig.util.root_pattern(".git", "*.v", "*.sv"),
+  single_file_support = true,
 }
+
+lspconfig.pyright.setup({
+  capabilities = capabilities,
+  settings = {
+  pyright = {
+  disableOrganizeImports = true,
+  },
+  python = {
+  analysis = {
+  ignore = { "*" },
+  },
+  },
+  },
+})
+lspconfig.ruff.setup({})

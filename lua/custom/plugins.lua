@@ -23,9 +23,8 @@ local plugins = {
   },
   {
     'rcarriga/nvim-notify',
-    config = function()
-      vim.notify = require("notify")
-    end
+    lazy = false,
+    config = function() vim.notify = require("notify") end
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
@@ -64,11 +63,11 @@ local plugins = {
       ensure_installed = {
         "black",
         "clangd",
+        "verible",
         "clang-format",
         "codelldb",
         "pyright",
         "mypy",
-        "ruff"
       }
     }
   }

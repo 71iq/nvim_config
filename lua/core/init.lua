@@ -72,6 +72,13 @@ autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.v",
+  callback = function()
+    vim.bo.filetype = "verilog"
+  end,
+})
+
 -- reload some chadrc options on-save
 autocmd("BufWritePost", {
   pattern = vim.tbl_map(function(path)
