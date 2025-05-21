@@ -68,6 +68,9 @@ local plugins = {
         "codelldb",
         "pyright",
         "mypy",
+        "bash-language-server",
+        "shellcheck",
+        "shfmt"
       }
     }
   }

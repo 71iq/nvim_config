@@ -12,6 +12,8 @@ lspconfig.clangd.setup {
   capabilities = capabilities,
 }
 
+lspconfig.bashls.setup{}
+
 lspconfig.verible.setup {
   on_attach = on_attach,
   capabilities = capabilities,
