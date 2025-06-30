@@ -4,12 +4,11 @@
 
 local map = vim.keymap.set
 
--- TODO fully
 map("i", "jk", "<Esc>", { desc = "Escape Insert Mode" })
 map("i", "kj", "<Esc>", { desc = "Escape Insert Mode" })
 
 map({ "n", "v" }, ";", ":", { desc = "Command Mode Shortcut" })
 
-map("n", "<leader>st", "<cmd>TodoLocList<CR>", { desc = "Todo" })
-
 map("n", "<leader>rc", [[:%s#//.*##<CR>]], { desc = "Remove Double Slash Comments" })
+
+map("n", "<S-u>", "<C-r>", { desc = "Undo but with shift U" })
