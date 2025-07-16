@@ -15,9 +15,20 @@ map("n", "<leader>rs", [[:%s/std:://g<CR>]], { desc = "Remove Occurences of 'std
 map(
   "n",
   "<leader>ra",
-  [[:%s#//.*##<CR>:4,$s/\<long long\>/int/g<CR>:%s/std:://g<CR>:w<CR>]],
+  ":%s#//.*##e | 4,$s/\\<long long\\>/int/ge | %s/std:://ge | w<CR>",
   { desc = "Apply All Refactors and Save" }
 )
 map("n", "<leader>r", "", { desc = "frequent" })
 
 map("n", "<S-u>", "<C-r>", { desc = "Undo but with shift U" })
+
+map("n", "<leader>ri", function()
+  vim.cmd([[g/^#include/d]])
+
+  local lines = {
+    "#include <bits/stdc++.h>",
+    "using namespace std;",
+    "#define int long long",
+  }
+  vim.api.nvim_buf_set_lines(0, 0, 0, false, lines)
+end, { desc = "Replace #includes with standard header block" })
